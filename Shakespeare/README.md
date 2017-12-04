@@ -8,4 +8,4 @@
 2. 无输入
 <img src="./noinput.png" width = "450" align=center />
 3. 无结果
-<img src="./noresult.png" width = "650" align=center />
+<img src="./noresult.png" width = "450" align=center />
