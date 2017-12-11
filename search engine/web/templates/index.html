@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Search in Nankai</title>
+    <style>
+        body{
+            font-family: microsoft yahei
+        }
+        img{
+            width: 6%;
+            height: 5%;
+        }
+        .text{
+            width:400px;
+            height:30px;
+        }
+        .submit{
+            width:100px;
+            height:36px;
+        }
+        .text_main {
+            font-size:16px;
+        }
+        a:link {
+            text-decoration: none
+        }
+        a:hover { 
+            text-decoration:underline
+        }
+    </style>
+</head>
+<body>
+    <div style="text-align:center;">
+        <br/><br/><br/><br/><br/><br/><br/>
+        <img src="{{ url_for('static', filename='images/logo.png') }}">
+        <form name="search" action="/search/" method="POST">
+           <p>
+                {% if key %}
+                    <input type="text" name="key_word" value="{{key}}" class="text">
+                {% else %}
+                    <input type="text" name="key_word" class="text">
+                {% endif %}
+                    <input type="submit" value="Search" class="submit">
+            </p>
+        </form>
+    </div>
+    
+    <div style="text-align:center;">
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        <p class="text_main">
+            For more information, please visit <a href="http://www.nankai.edu.cn/" target="_blank">Nankai University</a>.
+        </p>
+        </div>
+    </body>
+</html>

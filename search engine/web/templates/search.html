@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Search in Nankai</title>
+    <style type="text/css">
+        div#doc {
+            margin-left: 5%;
+            width:750px;
+        }
+        body{
+            font-family: microsoft yahei
+        }
+        .pagination-page-info {
+            padding: .6em;
+            padding-left: 0;
+            width: 40em;
+            margin: .5em;
+            margin-left: 0;
+            font-size: 12px;
+        }
+        .pagination-page-info b {
+            color: black;
+            background: #6aa6ed;
+            padding-left: 2px;
+            padding: .1em .25em;
+            font-size: 150%;
+        }
+        #doctitle {
+            font-size: 20px;
+        }
+        #doclink {
+            font-size:15px;
+            color:green;
+        }
+        a:link {
+            text-decoration: none
+        }
+        a:hover { 
+            text-decoration:underline
+        }
+    </style>
+</head>
+<body>
+    <br/>
+    <div id="container">
+        <div id="header">
+            <form name="search" action="/search/" method="POST">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" style="width:32px;height:37px;float:left;margin-left: 5%;">
+                <p>
+                    {% if key %}
+                        <input type="text" name="key_word" value="{{key}}" style="width:550px;height:30px;margin-left: 2px;" >
+                    {% else %}
+                        <input type="text" name="key_word" class="text" style="width:550px;height:30px;margin-left: 2px" >
+                    {% endif %}
+                    <input type="submit" value="Search" class="submit" style="width:100px;height:36px;" >
+                </p>
+            </form>
+        </div>
+        <br/>
+        <hr style="width: 84%;">
+        {% if error%}
+            {% for doc in docs%}
+            <div id="doc">
+                <ul id="navigation">
+                    <a href="{{doc.url}}" target="_blank" id="doctitle">{{doc.title}}</a><br/>
+                    <span><span>(</span>{{doc.datetime}}<span>)</span></span>{{doc.snippet}}<br/>
+                    <a href="{{ doc.url }}" target="_blank" id="doclink">{{doc.url}}</a>
+                    </p>
+                    <br/>
+                </ul>
+            </div>
+            {% endfor %}
+        {% block next %}
+        <ul style="margin-left: 5%;">
+            {% for i in page %}
+                <a href="/search/page/{{i}}/">{{i}}</a>&nbsp;
+            {% endfor %}
+        </ul>
+        {% endblock %}
+        {% else %}
+            <p style="margin-left: 8%;">Input nothing！</p>
+        {% endif %}
+		
+		<div id="footer" style="margin-left: 8%;">
+			<p style="color: gray; font-size: 14px;">The results are from <a href="http://nankai.en.school.cucas.cn/" target="_blank">Nankai University</a>.</p><br/>
+        </div>
+    </div>
+</body>
+</html>
