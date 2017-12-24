@@ -35,6 +35,11 @@
         a:link {
             text-decoration: none
         }
+        #shotlink {
+            font-size:15px;
+            color:gray;
+            text-decoration:underline
+        }
         a:hover { 
             text-decoration:underline
         }
@@ -64,7 +69,7 @@
                 <ul id="navigation">
                     <a href="{{doc.url}}" target="_blank" id="doctitle">{{doc.title}}</a><br/>
                     <span><span>(</span>{{doc.datetime}}<span>)</span></span>{{doc.snippet}}<br/>
-                    <a href="{{ doc.url }}" target="_blank" id="doclink">{{doc.url}}</a>
+                    <a href="{{ doc.url }}" target="_blank" id="doclink">{{doc.url}}</a>&nbsp&nbsp<a href="{{ doc.surl }}" target="_blank" id="shotlink">snapshot</a>
                     </p>
                     <br/>
                 </ul>

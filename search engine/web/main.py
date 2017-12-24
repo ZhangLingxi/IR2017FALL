@@ -58,7 +58,7 @@ def find(docid):
         title = root.find('title').text
         snippet = root.find('snippet').text+"..."
         datetime = root.find('datetime').text
-        doc = {'url': url, 'title': title, 'snippet': snippet, 'datetime': datetime, 'time': time, 'id': id}
+        doc = {'url': url, 'title': title, 'snippet': snippet, 'datetime': datetime, 'id': id, 'surl':'/static/snapshot/%s.html' % id}
         docs.append(doc)
     return docs
 
